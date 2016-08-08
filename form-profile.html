@@ -1,0 +1,26 @@
+<div id="personal-info-view">
+    <form novalidate ng-submit="submit()" name="personalInfoForm">
+        <div ng-init="setForm(personalInfoForm);"></div>
+        <div class="form-group">
+            <label for="firstName" ng-show="registrationData.firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" ng-model="registrationData.firstName" required placeholder="First Name">
+        </div>
+
+        <div class="form-group">
+            <label for="lastName" ng-show="registrationData.lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" ng-model="registrationData.lastName" required placeholder="Last Name">
+        </div>
+
+        <div class="form-group">
+            <label for="email" ng-show="registrationData.email.length > 0">Email</label>
+            <input type="email" class="form-control" name="email" ng-model="registrationData.email" required placeholder="Email">
+        </div>
+        <div class="form-group row">
+            <div class="col-xs-6 col-xs-offset-3">
+                <button ui-sref="form.car" class="btn btn-lg btn-block btn-info" ng-disabled="personalInfoForm.$invalid">
+                    NEXT <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

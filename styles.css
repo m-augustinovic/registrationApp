@@ -1,0 +1,217 @@
+body { 
+    background-color: whitesmoke;
+    padding-top: 20px;
+}
+
+h1,
+h2, 
+label,
+#payment-info-view .form-group span {
+    color: white;
+}
+
+input {   
+  outline: none;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+#form-container { 
+    background: #a2a7a5; 
+    margin-bottom:20px;
+    border-radius:5px; 
+}
+
+#form-container .page-header { 
+    background:#3a405a; 
+    margin:0; 
+    padding:30px; 
+    border-top-left-radius:5px; 
+    border-top-right-radius:5px; 
+}
+
+#form-container .page-header h2 {
+    margin-bottom: 20px;
+}
+
+#form-view button {
+    background-color: #3f2850;
+    border: none;
+    outline: none;
+}
+
+#status-buttons a { 
+    color:#ffffff;
+    cursor: pointer;
+    display:inline-block; 
+    font-size:12px; 
+    margin-right:20px; 
+    text-align:center;
+    text-decoration: none;
+    text-transform:uppercase; 
+}
+
+#status-buttons a:hover { 
+    text-decoration:none; 
+}
+
+#status-buttons > a span:first-of-type { 
+    background:#ffffff; 
+    color: black;
+    display:block; 
+    height:30px; 
+    margin:0 auto 10px; 
+    padding-top:8px; 
+    width:30px; 
+    border-radius:50%; 
+}
+
+#status-buttons > a.active span:first-of-type { 
+    background:#3f2850;
+    color: beige;
+}
+
+.form-group {
+    height: 69px;
+    position: relative;
+}
+
+.form-group label {
+    opacity: 1;
+}
+
+.form-group label.ng-hide-add, label.ng-hide-remove {
+    transition: all ease-in-out .2s;
+}
+
+.form-group label.ng-hide {
+    opacity: 0;
+}
+
+.form-group input {
+    bottom: 0;
+    position: absolute;
+}
+
+#personal-info-view > form .form-group:nth-of-type(4) {
+    margin-bottom: 45px;
+}
+
+#car-info-view select {
+    border-radius: 4px;
+    bottom: 0;
+    color: black;
+    display: block;
+    height: 43px;
+    outline: none;
+    padding-left: 15px;
+    position: absolute;
+    width: 100%;
+}
+
+#car-info-view > form .form-group:nth-of-type(3),
+#payment-info-view > form .form-group:nth-of-type(3) {
+    margin-bottom: 129px;
+}
+
+#payment-info-view .form-group:nth-of-type(3) input {
+    display: inline-block;
+    margin-left: 10px;
+    position: relative;
+}
+
+#payment-info-view .form-group:nth-of-type(3) input:first-of-type {
+    margin-right: 15px;
+    width: 50px;
+}
+
+#payment-info-view .form-group:nth-of-type(3) input:nth-of-type(2) {
+    width: 50px;
+}
+
+#success-container,
+#storage-container {
+    background: #a8a8a8; 
+    border-radius: 5px;
+    text-align: center;
+    padding: 40px 0;
+}
+
+#success-container > h1 {
+    margin-bottom: 40px;
+}
+
+#success-container > h2 {
+    margin-bottom: 80px;
+}
+
+#success-container button {
+    background-color: #3f2850;
+    border: none;
+    outline: none;
+    width: 200px;
+}
+
+#storage-container table {
+    text-align: left;
+}
+
+/* ANIMATION STYLINGS */
+#signup-form { 
+    position:relative; 
+    min-height:426px;
+    overflow:hidden; 
+    padding:30px; 
+}
+
+#form-view.ng-enter,
+#form-view.ng-leave { 
+    position:absolute; 
+    left:30px; 
+    right:30px;
+    transition:0.5s all ease; 
+    -moz-transition:0.5s all ease; 
+    -webkit-transition:0.5s all ease; 
+} 
+
+#form-view.ng-enter            { 
+    -webkit-animation:slideInRight 0.5s both ease;
+	-moz-animation:slideInRight 0.5s both ease;
+	animation:slideInRight 0.5s both ease; 
+}
+
+#form-view.ng-leave            { 
+    -webkit-animation:slideOutLeft 0.5s both ease;
+	-moz-animation:slideOutLeft 0.5s both ease;
+	animation:slideOutLeft 0.5s both ease;   
+}
+
+/* ANIMATIONS */
+@keyframes slideOutLeft {
+	to 		{ transform: translateX(-200%); }
+}
+
+@-moz-keyframes slideOutLeft {	
+	to 		{ -moz-transform: translateX(-200%); }
+}
+
+@-webkit-keyframes slideOutLeft {
+	to 		{ -webkit-transform: translateX(-200%); }
+}
+
+@keyframes slideInRight {
+	from 	{ transform:translateX(200%); }
+	to 		{ transform: translateX(0); }
+}
+
+@-moz-keyframes slideInRight {
+	from 	{ -moz-transform:translateX(200%); }
+	to 		{ -moz-transform: translateX(0); }
+}
+
+@-webkit-keyframes slideInRight {
+	from 	{ -webkit-transform:translateX(200%); }
+	to 		{ -webkit-transform: translateX(0); }
+}

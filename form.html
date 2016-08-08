@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <div id="form-container">
+            <div class="page-header text-center">
+            <h2>Registration</h2>
+                <div id="status-buttons" class="text-center">
+                    <a ng-class="{'active': currentState === 'form.profile'}" ng-click="goToState('profile')">
+                        <span>1</span> 
+                        <span>Personal Info</span>
+                    </a>
+                    <a ng-class="{'active': currentState === 'form.car'}" ng-click="goToState('car')">
+                        <span>2</span>
+                        <span>Car Info</span>
+                    </a>
+                    <a ng-class="{'active': currentState === 'form.payment'}" ng-click="goToState('payment')">
+                        <span>3</span>
+                        <span>Payment Info</span>
+                    </a>
+                </div>
+            </div>
+            <div id="signup-form">
+                <div id="form-view" ui-view></div>
+            </div>
+        </div>
+    </div>
+</div>

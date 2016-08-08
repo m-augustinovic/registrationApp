@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div id="storage-container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th> 
+                        <th>Email</th>
+                        <th>Car Make</th>
+                        <th>Car Model</th>
+                        <th>Credit Card Number</th>
+                        <th>Expiry Month</th>
+                        <th>Expiry Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="thing in things">
+                        <td>{{thing.firstName}}</td>
+                        <td>{{thing.lastName}}</td>
+                        <td>{{thing.email}}</td>
+                        <td>{{thing.carMake}}</td>
+                        <td>{{thing.carModel}}</td>
+                        <td>{{thing.cardNumber}}</td>
+                        <td>{{thing.expiryMonth}}</td>
+                        <td>{{thing.expiryYear}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div id="payment-info-view">
+    <form novalidate ng-submit="submit()" name="paymentInfoForm">
+        <div ng-init="setForm(paymentInfoForm);"></div>
+        <div class="form-group">
+            <label for="cardNumber" ng-show="registrationData.cardNumber">Credit Card Number</label>
+            <input type="text" class="form-control" name="cardNumber" ng-model="registrationData.cardNumber" ng-model-options="{allowInvalid : true}" cc-number cc-type="cardType" cc-format required placeholder="Credit Card Number">
+        </div>
+        <div class="form-group" cc-exp>
+            <label for="expiryDate">Expiration Date</label>
+            </br>
+            <span>Month</span>
+            <input type="text" class="form-control" name="expiryMonth" ng-model="registrationData.expiryMonth" cc-exp-month required placeholder="MM">
+            <span>Year</span>
+            <input type="text" class="form-control" name="expiryYear" ng-model="registrationData.expiryYear" cc-exp-year required placeholder="YY">
+        </div>
+        <div class="form-group row">
+            <div class="col-xs-6 col-xs-offset-3">
+                <button type="submit" ui-sref="success" class="btn btn-lg btn-block btn-info" ng-disabled="paymentInfoForm.$invalid" ng-click="saveData(registrationData)">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
