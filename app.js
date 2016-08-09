@@ -1,6 +1,14 @@
-angular.module('registrationApp', ['ngAnimate', 'ui.router', 'ngCookies', 'ngStorage', 'credit-cards'])
+'use strict';
 
-.config(function ($stateProvider, $urlRouterProvider) {
+var registrationApp = angular.module('registrationApp', [
+    'ngAnimate', 
+    'ui.router', 
+    'ngCookies', 
+    'ngStorage', 
+    'credit-cards'
+])
+
+registrationApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     
     $stateProvider
     
@@ -8,7 +16,7 @@ angular.module('registrationApp', ['ngAnimate', 'ui.router', 'ngCookies', 'ngSto
             url: '/form',
             abstract: true,
             templateUrl: 'form.html',
-            controller: 'formController'
+            controller: 'appCtrl'
         })
         
         .state('form.profile', {
@@ -40,9 +48,11 @@ angular.module('registrationApp', ['ngAnimate', 'ui.router', 'ngCookies', 'ngSto
         });
        
     $urlRouterProvider.otherwise('/form/profile');
-})
+}])
 
-.controller('formController', function($scope, $rootScope, $state, $cookies, $window, $localStorage) {
+registrationApp.controller('appCtrl', ['$scope', '$rootScope', '$state', '$cookies', '$window', '$localStorage', appCtrl]);
+            
+function appCtrl($scope, $rootScope, $state, $cookies, $window, $localStorage) {
     $scope.registrationData = $cookies.getObject('regData') || {};
     $scope.currentState = $state.current.name;
     $localStorage = $localStorage.$default({
@@ -119,18 +129,20 @@ angular.module('registrationApp', ['ngAnimate', 'ui.router', 'ngCookies', 'ngSto
         $localStorage.things.push(data);
     }
     
-})
+}
 
-.controller('formProfileCtrl', function($scope) {
+registrationApp.controller('formProfileCtrl', ['$scope', formProfileCtrl]);
+function formProfileCtrl($scope) {
     $scope.setForm = function(form) {
         $scope.form = form;
     }
     $scope.$watch('form.$invalid', function (newVal) {
         $scope.$emit('profileInvalid', newVal);
     });
-})
+}
 
-.controller('formCarCtrl', function($scope) {
+registrationApp.controller('formCarCtrl', ['$scope', formCarCtrl]);
+function formCarCtrl($scope) {
     $scope.setForm = function(form) {
         $scope.form = form;
     }
@@ -198,17 +210,18 @@ angular.module('registrationApp', ['ngAnimate', 'ui.router', 'ngCookies', 'ngSto
     if($scope.carMake) {
         $scope.carModel = _.find($scope.carMake.models, {'name' : $scope.registrationData.carModel});
     }
-})
+}
 
-.controller('storageCtrl', function($scope, $localStorage) {
+registrationApp.controller('storageCtrl', ['$scope', '$localStorage', storageCtrl]);
+function storageCtrl($scope, $localStorage) {
     $scope.things = $localStorage.things
-})
+}
 
-.run(function($rootScope){
+registrationApp.run(['$rootScope', function($rootScope){
      $rootScope.$on("$stateNotFound", function (event, unfoundState, fromState, fromParams) { 
          if (unfoundState.to == '-') { 
              event.preventDefault(); 
              return; 
          }
      });
-});
+}]);
